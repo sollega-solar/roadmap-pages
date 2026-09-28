@@ -70,6 +70,7 @@
   .dot.safe { background: var(--teal); }
   .dot.sec { background: var(--teal-dark); }
   .dot.outside { background: none; border: 1px solid rgba(17, 17, 16, 0.4); }
+  .dot.buffer { background: none; border: 1px dashed var(--mute); }
 
   /* ---------- layout ---------- */
   .section { margin-top: 2.5rem; }
@@ -106,12 +107,12 @@
   .rows dt { font-weight: 500; }
   .rows dd { text-align: right; color: var(--mute); }
 
-  /* timeline: 8 half-week columns */
-  .gantt { min-width: 46rem; display: grid; grid-template-columns: 6rem repeat(8, 1fr); align-items: center; row-gap: 0.5rem; }
+  /* timeline: 12 half-week columns */
+  .gantt { min-width: 56rem; display: grid; grid-template-columns: 5rem repeat(12, 1fr); align-items: center; row-gap: 0.5rem; }
   .week { grid-column: span 2; padding: 0 0 0.5rem 0.625rem; border-left: 1px solid var(--line); font-size: 0.75rem; font-weight: 500; color: var(--mute); }
   .who { font-size: 0.875rem; font-weight: 500; }
   .who.minor { font-size: 0.75rem; font-weight: 400; color: var(--mute); }
-  .bar { height: 2rem; margin: 0 0.125rem; padding: 0 0.625rem; display: flex; align-items: center; border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 500; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar { height: 2rem; margin: 0 0.125rem; padding: 0 0.5rem; display: flex; align-items: center; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 500; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .bar.sell { background: var(--orange); }
   .bar.safe { background: var(--teal); }
   .bar.sec { background: var(--teal-dark); }
@@ -119,7 +120,7 @@
   .bar.outside { border: 1px solid rgba(17, 17, 16, 0.25); color: var(--ink); }
   .bar.bugs { border: 1px solid rgba(222, 98, 39, 0.3); background: var(--orange-wash); color: var(--orange-deep); }
   .span-1 { grid-column: span 1; } .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; }
-  .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; }
+  .span-4 { grid-column: span 4; } .span-6 { grid-column: span 6; } .span-8 { grid-column: span 8; } .span-12 { grid-column: span 12; }
   .legend { margin-top: 1.25rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; font-size: 0.875rem; color: var(--mute); }
   .legend .end { margin-left: auto; font-weight: 500; color: var(--ink); }
 
@@ -215,11 +216,12 @@
   <section class="slide">
     <div class="wrap">
       <div class="eyebrow">Sollega Design Tool · v1 roadmap</div>
-      <h1 class="title title-xl">Launch-ready in <em>4&nbsp;weeks.</em></h1>
-      <p class="sub sub-lg">Four engineers, working in parallel, on the work that stands between today's tool and one we can put in front of customers.</p>
+      <h1 class="title title-xl">Launch-ready in <em>6&nbsp;weeks.</em></h1>
+      <p class="sub sub-lg">Four engineers, working in parallel, on the work that stands between today's tool and one we can put in front of customers. Four weeks to build it, two weeks of buffer to make the date hold.</p>
       <div class="meta ruled">
         <div>Team<b>Charles, Jackson, Rego, Zante</b></div>
-        <div>Duration<b>4 weeks</b></div>
+        <div>Duration<b>6 weeks</b></div>
+        <div>Breakdown<b>4 build + 2 buffer</b></div>
         <div class="desktop-only">Navigate<b>← →</b></div>
       </div>
     </div>
@@ -260,35 +262,40 @@
   <section class="slide">
     <div class="wrap">
       <div class="eyebrow">The plan on one page</div>
-      <h2 class="title">Four weeks. Nobody waits on anybody.</h2>
+      <h2 class="title">Four weeks to build. <em>Two weeks of buffer.</em></h2>
       <div class="section scroll-x">
         <div class="gantt">
           <div></div>
-          <div class="week">Week 1</div><div class="week">Week 2</div><div class="week">Week 3</div><div class="week">Week 4</div>
+          <div class="week">Week 1</div><div class="week">Week 2</div><div class="week">Week 3</div><div class="week">Week 4</div><div class="week">Week 5</div><div class="week">Week 6</div>
 
           <div class="who">Charles</div>
           <div class="bar sell span-6">Company accounts · 3 wks</div>
-          <div class="bar buffer span-2">Fixes &amp; buffer</div>
+          <div class="bar bugs span-2">Bug fixes</div>
+          <div class="bar buffer span-4">Buffer · 2 wks</div>
 
           <div class="who">Jackson</div>
-          <div class="bar safe span-2">Staging environments · 1 wk</div>
+          <div class="bar safe span-2">Staging · 1 wk</div>
           <div class="bar safe span-3">Regression protection · 1.5 wks</div>
-          <div class="bar buffer span-1">Buffer</div>
-          <div class="bar sec span-2">Security check · 1 wk</div>
+          <div class="bar bugs span-1">Bugs</div>
+          <div class="bar sec span-2">Security · 1 wk</div>
+          <div class="bar buffer span-4">Buffer · 2 wks</div>
 
           <div class="who">Rego</div>
           <div class="bar safe span-3">Early-warning system · 1.5 wks</div>
           <div class="bar sell span-3">Bug focus</div>
-          <div class="bar sec span-2">Security check · 1 wk</div>
+          <div class="bar sec span-2">Security · 1 wk</div>
+          <div class="bar buffer span-4">Buffer · 2 wks</div>
 
           <div class="who">Zante</div>
           <div class="bar safe span-8">Design version history · 4 wks, plus ASCE 7-22 fixes if anything is flagged</div>
+          <div class="bar buffer span-4">Buffer · 2 wks</div>
 
           <div class="who">External</div>
-          <div class="bar outside span-8">ASCE 7-22 approval · runs in parallel, no work from us unless something is flagged</div>
+          <div class="bar outside span-12">ASCE 7-22 approval · runs in parallel, no work from us unless something is flagged</div>
 
           <div class="who minor">Throughout</div>
           <div class="bar bugs span-8">Bug fixing in the background · 25 open, ~12 closed per week</div>
+          <div class="bar buffer span-4">Buffer · 2 wks</div>
         </div>
       </div>
       <div class="legend">
@@ -296,12 +303,13 @@
         <span><i class="dot safe"></i>Makes it safe</span>
         <span><i class="dot sec"></i>Final security check</span>
         <span><i class="dot outside"></i>Outside review</span>
-        <span class="end">End of week 4: launch-ready</span>
+        <span><i class="dot buffer"></i>Buffer</span>
+        <span class="end">End of week 6: launch</span>
       </div>
       <div class="notes three">
-        <div><div class="label">Why this order</div><p>The security check goes last on purpose, so it tests the finished product, company accounts included.</p></div>
+        <div><div class="label">Why this order</div><p>The security check is the last build step on purpose, so it tests the finished product, company accounts included.</p></div>
         <div><div class="label">The one outside dependency</div><p>ASCE 7-22 approval costs us nothing while it's clean. Anything flagged goes to Zante.</p></div>
-        <div><div class="label">Fully staffed</div><p>Zante has design version history for all four weeks, so every item on the plan has an owner.</p></div>
+        <div><div class="label">What the buffer is for</div><p>Weeks 5 and 6 are left unassigned on purpose. They absorb whatever runs long: security findings, anything ASCE 7-22 flags, or stubborn bugs.</p></div>
       </div>
     </div>
   </section>
@@ -358,7 +366,7 @@
             <div class="col done"><div class="val">0</div><div class="fill"></div></div>
           </div>
           <div class="chart-axis"><div>Today</div><div>Week 1</div><div>Week 2</div><div>Week 3</div></div>
-          <p class="chart-note">Projection at today's pace. Pace will dip while the team also builds, which is why bugs get the full four weeks.</p>
+          <p class="chart-note">Projection at today's pace. Pace will dip while the team also builds, which is why bugs get all four build weeks, with the buffer behind them.</p>
         </div>
         <div class="aside">
           <h3>This is the finish line, not an open-ended cleanup.</h3>
@@ -464,7 +472,7 @@
         <div class="panel"><h3>We find the holes first</h3><p>One focused week attacking our own product, then closing every gap we find.</p></div>
         <div class="panel"><h3>We can't fight a breach live</h3><p>A team our size can't handle a security crisis in real time. Prevention is the only affordable option.</p></div>
       </div>
-      <div class="meta"><div>Owner<b>Jackson + Rego</b></div><div>Duration<b>1 week</b></div><div>Note<b>Last step before launch</b></div></div>
+      <div class="meta"><div>Owner<b>Jackson + Rego</b></div><div>Duration<b>1 week</b></div><div>Note<b>Last build step, with buffer after it for fixes</b></div></div>
       <div class="notes">
         <div><div class="label">Why it matters</div><p>Customers are trusting us with their project data. A breach in month one costs us that trust, and far more than a week.</p></div>
         <div class="tech"><div class="label">Under the hood</div><p>Review of vulnerabilities and attack paths, plus hardening of the system before public access.</p></div>
@@ -495,7 +503,7 @@
     <div class="wrap">
       <div class="eyebrow">Can we go faster?</div>
       <h2 class="title">Most of the safety work costs us <em>zero extra days.</em></h2>
-      <p class="sub">It runs in parallel with company accounts, which is what sets the date.</p>
+      <p class="sub">It runs in parallel with company accounts, which is what sets the length of the build.</p>
       <div class="section tight scroll-x">
         <table class="table">
           <thead>
@@ -508,11 +516,12 @@
             <tr><td>Design version history</td><td>0 days</td><td>Customers can lose reviewed designs</td></tr>
             <tr><td>Company accounts</td><td class="cost">About half a week</td><td>We can't sell to companies</td></tr>
             <tr><td>Security check</td><td class="cost">1 week</td><td>A public breach we can't respond to</td></tr>
+            <tr><td>The buffer</td><td class="cost">2 weeks</td><td>Any surprise moves the launch date</td></tr>
           </tbody>
         </table>
       </div>
       <div class="notes one">
-        <div><div class="label">The takeaway</div><p>Four weeks is already the fast plan. The only real shortcuts are the two we can least afford.</p></div>
+        <div><div class="label">The takeaway</div><p>Four weeks of build is already the fast plan. The only real shortcuts are the ones we can least afford, and the buffer is what lets us promise the date.</p></div>
       </div>
     </div>
   </section>
@@ -521,8 +530,8 @@
   <section class="slide">
     <div class="wrap">
       <div class="eyebrow">The ask</div>
-      <h2 class="title title-lg">Green-light <em>four weeks.</em></h2>
-      <p class="sub">In return, we launch a tool that's ready for real customers, not one we have to apologize for.</p>
+      <h2 class="title title-lg">Green-light <em>six weeks.</em></h2>
+      <p class="sub">Four to build, two in reserve. In return, we launch on a date we can keep, with a tool that's ready for real customers, not one we have to apologize for.</p>
       <div class="outcomes">
         <div><h3>We can sell it</h3><p>Companies sign up as teams, and the known bugs are gone.</p></div>
         <div><h3>We can trust it</h3><p>Tested, monitored, and checked for security before anyone outside sees it.</p></div>
