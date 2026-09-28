@@ -138,7 +138,7 @@
   .node.accent { border-color: var(--orange); background: var(--orange-wash); }
   .node.accent small { color: var(--orange-deep); }
 
-  /* change → rehearsal → live */
+  /* change → staging → live */
   .flow { display: flex; align-items: center; gap: 0.75rem; }
   .flow .node { flex: 1; padding-top: 0.75rem; padding-bottom: 0.75rem; }
 
@@ -244,7 +244,7 @@
           <dl class="rows">
             <div><dt>Early-warning system</dt><dd>We know before the customer calls</dd></div>
             <div><dt>Design version history</dt><dd>No lost work</dd></div>
-            <div><dt>A rehearsal space</dt><dd>Changes are tested before customers see them</dd></div>
+            <div><dt>Staging environments for the split apps</dt><dd>The Design Tool and marketing site are separated, and changes are tested before customers see them</dd></div>
             <div><dt>Regression protection</dt><dd>New fixes don't break old features</dd></div>
             <div><dt>Security check</dt><dd>Find the holes before attackers do</dd></div>
           </dl>
@@ -271,7 +271,7 @@
           <div class="bar buffer span-2">Fixes &amp; buffer</div>
 
           <div class="who">Jackson</div>
-          <div class="bar safe span-2">Rehearsal space · 1 wk</div>
+          <div class="bar safe span-2">Staging environments · 1 wk</div>
           <div class="bar safe span-3">Regression protection · 1.5 wks</div>
           <div class="bar buffer span-1">Buffer</div>
           <div class="bar sec span-2">Security check · 1 wk</div>
@@ -413,26 +413,26 @@
     </div>
   </section>
 
-  <!-- 05 A rehearsal space -->
+  <!-- 05 Staging environments for the split apps -->
   <section class="slide">
     <div class="wrap">
-      <div class="eyebrow"><span class="num">05</span>A rehearsal space</div>
+      <div class="eyebrow"><span class="num">05</span>Staging environments for the split apps</div>
       <h2 class="title">Customers should never be <em>the first to try a change.</em></h2>
       <div class="section flow">
         <div class="node">We build a change<small>&nbsp;</small></div>
         <svg class="arrow small" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        <div class="node accent">Rehearsal copy<small>New: tested here first</small></div>
+        <div class="node accent">Staging environment<small>New: tested here first</small></div>
         <svg class="arrow small" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         <div class="node">Live tool<small>What customers use</small></div>
       </div>
       <div class="section close grid cols-2">
-        <div class="panel"><h3>A private copy of the tool</h3><p>Every change gets tried on an identical copy first. If it breaks, it breaks there, not in front of a customer.</p></div>
-        <div class="panel"><h3>Website and tool, separated</h3><p>sollega.com and the Design Tool stop sharing plumbing. Updating one can no longer take down the other.</p></div>
+        <div class="panel"><h3>Design Tool and marketing site, split</h3><p>The Design Tool is split from the sollega.com marketing site into its own app. Updating one can no longer take down the other.</p></div>
+        <div class="panel"><h3>A staging environment for each</h3><p>Every change gets tried on an identical staging copy first. If it breaks, it breaks there, not in front of a customer.</p></div>
       </div>
       <div class="meta"><div>Owner<b>Jackson</b></div><div>Duration<b>1 week</b></div><div>Note<b>Goes first, everything after is tested here</b></div></div>
       <div class="notes">
         <div><div class="label">Why it matters</div><p>After launch we'll ship updates constantly. This is what lets us do that fast without gambling on the live product.</p></div>
-        <div class="tech"><div class="label">Under the hood</div><p>A staging version of the backend, and the marketing site split out from the Design Tool site.</p></div>
+        <div class="tech"><div class="label">Under the hood</div><p>The Design Tool split out from the marketing site into separate apps, each with its own staging environment, plus a staging version of the backend.</p></div>
       </div>
     </div>
   </section>
@@ -503,7 +503,7 @@
           </thead>
           <tbody>
             <tr><td>Early-warning system</td><td>0 days</td><td>Launching blind, no reporting</td></tr>
-            <tr><td>Rehearsal space</td><td>0 days</td><td>Customers test our changes for us</td></tr>
+            <tr><td>Staging environments</td><td>0 days</td><td>Customers test our changes for us</td></tr>
             <tr><td>Regression protection</td><td>0 days</td><td>Every future update can break the tool</td></tr>
             <tr><td>Design version history</td><td>0 days</td><td>Customers can lose reviewed designs</td></tr>
             <tr><td>Company accounts</td><td class="cost">About half a week</td><td>We can't sell to companies</td></tr>
