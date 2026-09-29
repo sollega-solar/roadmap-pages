@@ -237,7 +237,7 @@
           <div class="label"><i class="dot sell"></i>Makes it client-ready</div>
           <dl class="rows">
             <div><dt>Company accounts</dt><dd>Whole teams, not just individuals</dd></div>
-            <div><dt>The last 25 bugs</dt><dd>Fixed before clients find them</dd></div>
+            <div><dt>The last 28 bugs</dt><dd>Fixed before clients find them</dd></div>
             <div><dt>ASCE 7-22 approval</dt><dd>Outside sign-off on our engineering numbers</dd></div>
           </dl>
         </div>
@@ -276,13 +276,13 @@
           <div class="who">Jackson</div>
           <div class="bar safe span-2">Staging · 1 wk</div>
           <div class="bar safe span-3">Regression protection · 1.5 wks</div>
-          <div class="bar bugs span-1">Bugs</div>
+          <div class="bar sell span-1" title="Bug sprint · 0.5 wk">Bugs</div>
           <div class="bar sec span-2">Security · 1 wk</div>
           <div class="bar buffer span-4">Buffer · 2 wks</div>
 
           <div class="who">Rego</div>
           <div class="bar safe span-3">Early-warning system · 1.5 wks</div>
-          <div class="bar sell span-3">Bug focus</div>
+          <div class="bar sell span-3">Bug sprint · 1.5 wks</div>
           <div class="bar sec span-2">Security · 1 wk</div>
           <div class="bar buffer span-4">Buffer · 2 wks</div>
 
@@ -294,7 +294,7 @@
           <div class="bar outside span-12">ASCE 7-22 approval · runs in parallel, no work from us unless something is flagged</div>
 
           <div class="who minor">Throughout</div>
-          <div class="bar bugs span-8">Bug fixing in the background · 25 open, ~12 closed per week</div>
+          <div class="bar bugs span-8">Bug fixing in the background · 28 open, ~4 closed per week</div>
           <div class="bar buffer span-4">Buffer · 2 wks</div>
         </div>
       </div>
@@ -356,22 +356,23 @@
   <section class="slide">
     <div class="wrap">
       <div class="eyebrow"><span class="num">02</span>Bug fixing</div>
-      <h2 class="title"><em>25 bugs</em> left. We close <em>12 a week.</em></h2>
+      <h2 class="title"><em>28 bugs</em> left. At <em>4 a week,</em> that's 7 weeks.</h2>
       <div class="section grid wide split" style="grid-template-columns: 1.4fr 1fr">
         <div>
           <div class="chart">
-            <div class="col"><div class="val">25</div><div class="fill" style="flex: 1"></div></div>
-            <div class="col"><div class="val">13</div><div class="fill" style="height: 44%"></div></div>
-            <div class="col"><div class="val">1</div><div class="fill" style="height: 3.5%"></div></div>
+            <div class="col"><div class="val">28</div><div class="fill" style="flex: 1"></div></div>
+            <div class="col"><div class="val">24</div><div class="fill" style="height: 75%"></div></div>
+            <div class="col"><div class="val">17</div><div class="fill" style="height: 53%"></div></div>
+            <div class="col"><div class="val">4</div><div class="fill" style="height: 12.5%"></div></div>
             <div class="col done"><div class="val">0</div><div class="fill"></div></div>
           </div>
-          <div class="chart-axis"><div>Today</div><div>Week 1</div><div>Week 2</div><div>Week 3</div></div>
-          <p class="chart-note">Projection at today's pace. Pace will dip while the team also builds, which is why bugs get all four build weeks, with the buffer behind them.</p>
+          <div class="chart-axis"><div>Today</div><div>Week 1</div><div>Week 2</div><div>Week 3</div><div>Week 4</div></div>
+          <p class="chart-note">Projection: 4 a week in the background, plus the bug sprint in weeks 2 and 3. New bugs found along the way are what the buffer is for.</p>
         </div>
         <div class="aside">
-          <h3>This is the finish line, not an open-ended cleanup.</h3>
-          <p>Every ticket on the list has been confirmed as a real problem. The count is known and it's going down.</p>
-          <div class="meta"><div>Owner<b>Mostly Rego</b></div><div>Duration<b>Throughout</b></div></div>
+          <h3>At today's pace, we don't finish in time.</h3>
+          <p>Closing 4 a week, the list outlasts the whole plan. So Jackson and Rego run a focused bug sprint to clear it inside the four build weeks.</p>
+          <div class="meta"><div>Owner<b>Rego + Jackson</b></div><div>Duration<b>Throughout, plus a bug sprint</b></div></div>
         </div>
       </div>
       <div class="notes one">
