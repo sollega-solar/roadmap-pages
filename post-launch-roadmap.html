@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Post-Launch Roadmap</title>
+<style>
+  :root {
+    --orange: #de6227;
+    --orange-deep: #bf3e00;
+    --teal: #077685;
+    --teal-wash: rgba(7, 118, 133, 0.08);
+    --ink: #111110;
+    --mute: #6f6d69;
+    --line: #e6e5e1;
+    --line-soft: #f0efec;
+    --wash: #f7f7f5;
+    --p1: #bf3e00; --p1-bg: rgba(191, 62, 0, 0.1);
+    --p2: #a86a00; --p2-bg: rgba(200, 140, 0, 0.12);
+    --p3: #4f6b73; --p3-bg: rgba(79, 107, 115, 0.1);
+    --c: #077685; --r: #6b4bb8; --j: #de6227;
+    --label: 8rem;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: var(--ink); font-family: var(--font); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+  .wrap { max-width: 84rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  .eyebrow { font-size: 0.875rem; font-weight: 500; color: var(--mute); margin-bottom: 0.75rem; }
+  h1 { font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.025em; font-weight: 600; }
+  h1 em { font-style: normal; color: var(--orange); }
+  .sub { margin-top: 0.75rem; max-width: 44rem; font-size: 1.0625rem; color: var(--mute); }
+  .meta { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; font-size: 0.875rem; color: var(--mute); }
+  .meta b { margin-left: 0.375rem; font-weight: 500; color: var(--ink); }
+
+  /* ---------- board ---------- */
+  .board-scroll { margin-top: 2rem; overflow-x: auto; }
+  .board { min-width: 64rem; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .row { display: grid; grid-template-columns: var(--label) repeat(9, minmax(0, 1fr)); }
+  .row + .row { border-top: 1px solid var(--line); }
+
+  .head { background: var(--wash); }
+  .wk { padding: 0.625rem 0.75rem 0.5rem; border-left: 1px solid var(--line); }
+  .wk b { display: block; font-size: 0.8125rem; font-weight: 600; }
+  .wk span { font-size: 0.75rem; color: var(--mute); }
+  .wk .halves { display: grid; grid-template-columns: 1fr 1fr; margin-top: 0.25rem; font-size: 0.625rem; letter-spacing: 0.05em; text-transform: uppercase; color: #a3a19c; }
+  .wk.lead .halves { grid-template-columns: 1fr; }
+
+  .who { grid-column: 1; grid-row: 1; padding: 0.875rem; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9375rem; font-weight: 600; }
+  .who i { flex: none; width: 1.5rem; height: 1.5rem; border-radius: 50%; color: #fff; font-style: normal; font-size: 0.6875rem; display: grid; place-items: center; }
+  .cell { grid-row: 1; border-left: 1px solid var(--line); }
+  .cell.half { border-left-color: var(--line-soft); }
+
+  .item { grid-row: 1; margin: 0.375rem 0.1875rem; padding: 0.625rem 0.75rem; border: 1px solid var(--line); border-radius: 8px; background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04); position: relative; z-index: 1; }
+  .item h3 { font-size: 0.9375rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; }
+  .item p { margin-top: 0.25rem; font-size: 0.8125rem; line-height: 1.4; color: var(--mute); }
+  .tags { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  .tag { font-size: 0.6875rem; font-weight: 500; padding: 0.0625rem 0.5rem; border-radius: 999px; background: var(--wash); color: var(--mute); white-space: nowrap; }
+  .tag.p1 { background: var(--p1-bg); color: var(--p1); }
+  .tag.p2 { background: var(--p2-bg); color: var(--p2); }
+  .tag.p3 { background: var(--p3-bg); color: var(--p3); }
+  .tag.eff { background: var(--teal-wash); color: var(--teal); }
+
+  .item.buffer { display: flex; flex-direction: column; justify-content: center; border: 1px dashed #d4d2cd; box-shadow: none;
+    background: repeating-linear-gradient(135deg, #fbfbfa 0 8px, #f3f2ef 8px 9px); }
+  .item.buffer h3 { color: var(--mute); }
+  .item.buffer p { color: #8c8a85; }
+
+  /* ---------- not scheduled ---------- */
+  .later { margin-top: 2.5rem; }
+  .later h2 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); margin-bottom: 0.75rem; }
+  .later .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.625rem; }
+  .later .item { margin: 0; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 2rem 1rem 4rem; }
+    h1 { font-size: 1.75rem; }
+  }
+  @media print {
+    .wrap { max-width: none; padding: 1rem; }
+    .board-scroll { overflow: visible; }
+    .board { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Sollega Design Tool · Post-launch roadmap</div>
+  <h1>The next <em>four weeks</em></h1>
+  <p class="sub">Who is building what through mid-December. Work starts Thursday, November 19.</p>
+  <div class="meta">
+    <span>Starts<b>Thu, Nov 19</b></span>
+    <span>Ends<b>Fri, Dec 18</b></span>
+    <span>Scheduled<b>9 of 14 ideas</b></span>
+  </div>
+
+  <div class="board-scroll">
+    <div class="board" id="board"></div>
+  </div>
+
+  <section class="later">
+    <h2>Not scheduled yet</h2>
+    <div class="grid" id="later"></div>
+  </section>
+</div>
+
+<script>
+// Columns: 0 = Nov 19-20 (this week), then 1-8 = half-weeks of weeks 1-4.
+const IDEAS = {
+  asce:     ["ASCE 7-22 confirmation", "Confirm our calculations line up with ASCE 7-22.", 1, "Small"],
+  seismic:  ["Enforce seismic requirements", "Make seismic requirements a rule the design has to meet, not just a warning.", 1, "Small"],
+  anchors:  ["Fix auto-alleviate anchors", "Fix the auto-alleviate behavior and add an “Add” button next to “seismic anchors required.”", 2, "Medium"],
+  midracks: ["Midracks auto-shift ballast", "Adding midracks should probably shift ballast automatically.", 2, "Small"],
+  wind:     ["Custom and multiple wind zones", "Support custom wind zones and more than one per project. The backend already supports this.", 3, "Large"],
+  ul:       ["UL 3741 support", "Support electrical and inverter placement.", 1, "Large"],
+  obst:     ["Outlining obstacles", "Let users outline obstacles on the roof.", 1, "Medium"],
+  spanish:  ["Spanish localization", "Internationalization, starting with Spanish.", 2, "Small"],
+  cad:      ["CAD imports", "Import CAD files into a project.", 3, "Large"],
+  pdf:      ["PDF as the map", "Use an imported PDF as the map, for new construction.", 2, "Medium"],
+  scan:     ["Scanifly drone photo overlays", "Import Scanifly drone photos to overlay on maps.", 3, "Medium"],
+  store:    ["Online store", "Essentially a product RFQ. Zoho handles the bid and the actual POS.", 2, "Small"],
+  stage:    ["Project stage tracking", "Track project stage after handoff to Sollega, based on the Zoho Kanban board.", 2, "Small"],
+  sync:     ["Two-way live sync", "Keep a project in sync when multiple users are looking at it.", 1, "Small"],
+};
+const PRI = { 1: "High", 2: "Medium", 3: "Low" };
+
+// [idea, start column, span]
+const LANES = [
+  { name: "Jackson", color: "var(--j)", items: [["asce", 0, 2], ["anchors", 2, 3], ["wind", 5, 4]] },
+  { name: "Charles", color: "var(--c)", items: [["midracks", 0, 2], ["sync", 2, 3], ["buffer", 5, 2], ["store", 7, 2]] },
+  { name: "Rego",    color: "var(--r)", items: [["seismic", 0, 2], ["spanish", 2, 3], ["buffer", 5, 2], ["stage", 7, 2]] },
+];
+const LATER = ["ul", "obst", "cad", "pdf", "scan"];
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function card(key) {
+  if (key === "buffer") return `<div class="item buffer"><h3>Buffer</h3><p>Catch-up time for anything that runs long.</p></div>`;
+  const [title, desc, p, effort] = IDEAS[key];
+  return `<div class="item"><h3>${esc(title)}</h3><p>${esc(desc)}</p>
+    <div class="tags"><span class="tag p${p}">${PRI[p]} priority</span><span class="tag eff">${effort} effort</span></div></div>`;
+}
+
+const weeks = [
+  { label: "This week", dates: "Nov 19 – 20", span: 1, halves: ["Thu – Fri"] },
+  { label: "Week 1", dates: "Nov 23 – 27", span: 2 },
+  { label: "Week 2", dates: "Nov 30 – Dec 4", span: 2 },
+  { label: "Week 3", dates: "Dec 7 – 11", span: 2 },
+  { label: "Week 4", dates: "Dec 14 – 18", span: 2 },
+];
+let html = `<div class="row head"><div></div>${weeks.map((w, i) =>
+  `<div class="wk${i ? "" : " lead"}" style="grid-column: span ${w.span}"><b>${w.label}</b><span>${w.dates}</span>
+    <div class="halves">${(w.halves || ["1st half", "2nd half"]).map(h => `<span>${h}</span>`).join("")}</div></div>`).join("")}</div>`;
+
+for (const lane of LANES) {
+  html += `<div class="row"><div class="who"><i style="background:${lane.color}">${lane.name[0]}</i>${lane.name}</div>`;
+  for (let c = 0; c < 9; c++) html += `<div class="cell${c % 2 === 0 && c > 0 ? " half" : ""}" style="grid-column: ${c + 2}"></div>`;
+  for (const [key, start, span] of lane.items)
+    html += card(key).replace('<div class="item', `<div style="grid-column: ${start + 2} / span ${span}" class="item`);
+  html += `</div>`;
+}
+document.getElementById("board").innerHTML = html;
+document.getElementById("later").innerHTML = LATER.map(card).join("");
+</script>
+</body>
+</html>
